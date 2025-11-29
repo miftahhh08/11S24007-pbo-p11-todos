@@ -6,9 +6,10 @@
 
 - Memperbarui kebutuhan paket
 
-### 29-10-2025
+### 29-11-2025
 
 - Melakukan inisialisasi proyek
+- Aktivitas Praktikum3 AplikasiCash Flow
 
 
 ## Syntax

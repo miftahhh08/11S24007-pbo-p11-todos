@@ -1,0 +1,97 @@
+<div th:fragment="addCashFlowModal">
+  <form th:action="@{/cashflows/add}" method="post" th:object="${cashFlowForm}">
+    <div class="modal fade" id="addCashFlowModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Tambah Transaksi Cash Flow</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="addFlowType" class="form-label">Tipe Transaksi</label>
+              <select
+                id="addFlowType"
+                class="form-select"
+                th:field="*{type}"
+              >
+                <option value="">Pilih Tipe</option>
+                <option value="INCOME">Pemasukan</option>
+                <option value="EXPENSE">Pengeluaran</option>
+              </select>
+              <div
+                class="text-danger"
+                th:if="${#fields.hasErrors('type')}"
+                th:errors="*{type}"
+              ></div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="addFlowAmount" class="form-label">Jumlah (Rp)</label>
+              <input
+                id="addFlowAmount"
+                type="number"
+                step="1"
+                class="form-control"
+                th:field="*{amount}"
+              />
+              <div
+                class="text-danger"
+                th:if="${#fields.hasErrors('amount')}"
+                th:errors="*{amount}"
+              ></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="addFlowLabel" class="form-label">Label/Kategori</label>
+              <input
+                id="addFlowLabel"
+                type="text"
+                class="form-control"
+                th:field="*{label}"
+              />
+              <div
+                class="text-danger"
+                th:if="${#fields.hasErrors('label')}"
+                th:errors="*{label}"
+              ></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="addFlowDescription" class="form-label"
+                >Deskripsi</label
+              >
+              <textarea
+                id="addFlowDescription"
+                class="form-control"
+                rows="3"
+                th:field="*{description}"
+              ></textarea>
+              <div
+                class="text-danger"
+                th:if="${#fields.hasErrors('description')}"
+                th:errors="*{description}"
+              ></div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Batal
+            </button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
